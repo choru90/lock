@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres3
+    username: kwangchul
+    password: Rhkdcjf0071!1
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop # 개발 시 편의용, 운영 시 변경
+    properties:
+      hibernate:
+#        format_sql: true
+#        show_sql: true
