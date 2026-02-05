@@ -8,11 +8,20 @@ import org.springframework.transaction.annotation.Transactional
 class StockService(
     private val repository: StockRepository
 ) {
+        // LOCK
+//    @Transactional
+//    fun decrease(id: Long, quantity: Long) {
+//        val stock = repository.findByIdWithOptimisticLock(id)
+//            ?: throw NoSuchElementException()
+//        stock.decrease(quantity)
+//        repository.saveAndFlush(stock)
+//    }
+
     @Transactional
     fun decrease(id: Long, quantity: Long) {
-        val stock = repository.findByIdWithOptimisticLock(id)
-            ?: throw NoSuchElementException()
+        val stock = repository.findById(id).orElseThrow {
+            throw IllegalArgumentException("재고가 없습니다.")
+        }
         stock.decrease(quantity)
-        repository.saveAndFlush(stock)
     }
 }

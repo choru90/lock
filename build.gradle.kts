@@ -21,12 +21,13 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-webmvc")
+    implementation("org.springframework.boot:spring-boot-starter-data-redis")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     runtimeOnly("org.postgresql:postgresql")
 
-    // Redis & Redisson (분산 락을 위해 필수)
-    implementation("org.redisson:redisson-spring-boot-starter:3.25.0")
+    // Redis & Redisson for distributed lock (Spring Boot 4.0 compatible)
+    implementation("org.redisson:redisson-spring-boot-starter:4.1.0")
 
     testImplementation("org.springframework.boot:spring-boot-starter-data-jpa-test")
     testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
