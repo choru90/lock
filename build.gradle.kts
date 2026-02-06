@@ -29,8 +29,12 @@ dependencies {
     // Redis & Redisson for distributed lock (Spring Boot 4.0 compatible)
     implementation("org.redisson:redisson-spring-boot-starter:4.1.0")
 
+    // Kafka for queue system
+    implementation("org.springframework.kafka:spring-kafka")
+
     testImplementation("org.springframework.boot:spring-boot-starter-data-jpa-test")
     testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
+    testImplementation("org.springframework.kafka:spring-kafka-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
